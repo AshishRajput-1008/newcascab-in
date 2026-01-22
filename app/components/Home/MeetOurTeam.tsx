@@ -1,9 +1,8 @@
 import React from 'react';
 import { Play, Image as ImageIcon, Film } from 'lucide-react';
 import s1 from "@/app/assets/gallery/cabcab.jpeg"
-
 import s3 from "@/app/assets/gallery/cascabImg1compress.jpg"
-import s4 from "@/app/assets/gallery/cascabvideo2.mp4"
+import s4 from "@/app/assets/gallery/cascabVideo.mp4"
 
 export default function MediaGallery() {
   const mediaItems = [
@@ -20,7 +19,7 @@ export default function MediaGallery() {
       type: "video",
       title: "CasCab Group Journey",
       description: "Watch our story of innovation and excellence across industries",
-      thumbnail: s4.src,
+      thumbnail: s4,
       icon: <Film className="w-6 h-6" />,
       isGif: true
     },
@@ -69,11 +68,23 @@ export default function MediaGallery() {
             >
               {/* Media Preview */}
               <div className="relative aspect-[4/3] overflow-hidden bg-gray-50">
-                <img
-                  src={item.thumbnail}
-                  alt={item.title}
-                  className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
-                />
+                {item.isGif ? (
+                  <video
+                    src={item.thumbnail}
+                    className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                    muted
+                    loop
+                    autoPlay
+                    playsInline
+                    preload="auto"
+                  />
+                ) : (
+                  <img
+                    src={item.thumbnail}
+                    alt={item.title}
+                    className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+                  />
+                )}
                 
                 {/* Overlay on Hover */}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0a3d3d]/80 via-[#0a3d3d]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
