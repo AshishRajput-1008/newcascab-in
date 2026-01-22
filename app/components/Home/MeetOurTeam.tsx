@@ -1,10 +1,48 @@
-import React from 'react';
+"use client"
+
+import React, { useRef, useEffect } from 'react';
 import { Play, Image as ImageIcon, Film } from 'lucide-react';
 import s1 from "@/app/assets/gallery/cabcab.jpeg"
 import s3 from "@/app/assets/gallery/cascabImg1compress.jpg"
 import s4 from "@/app/assets/gallery/cascabVideo.mp4"
 
 export default function MediaGallery() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const videoElement = videoRef.current;
+    if (!videoElement) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            videoElement.play().catch((error) => {
+              console.log('Video autoplay failed:', error);
+            });
+          } else {
+            videoElement.pause();
+          }
+        });
+      },
+      {
+        threshold: 0.5,
+        rootMargin: '0px'
+      }
+    );
+
+    observer.observe(videoElement);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
+  type Asset = string | { src?: string; default?: string };
+  const getAssetSrc = (asset: Asset): string => {
+    return typeof asset === "string" ? asset : asset.src ?? asset.default ?? "";
+  };
+
   const mediaItems = [
     {
       id: 1,
@@ -19,7 +57,7 @@ export default function MediaGallery() {
       type: "video",
       title: "CasCab Group Journey",
       description: "Watch our story of innovation and excellence across industries",
-      thumbnail: s4,
+      thumbnail: getAssetSrc(s4),
       icon: <Film className="w-6 h-6" />,
       isGif: true
     },
@@ -70,11 +108,11 @@ export default function MediaGallery() {
               <div className="relative aspect-[4/3] overflow-hidden bg-gray-50">
                 {item.isGif ? (
                   <video
+                    ref={videoRef}
                     src={item.thumbnail}
                     className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
                     muted
                     loop
-                    autoPlay
                     playsInline
                     preload="auto"
                   />

@@ -62,7 +62,7 @@ const [hoveredStat, setHoveredStat] = useState<number | null>(null);
             
             <div className="space-y-6">
               <p className="text-xl text-gray-700 leading-relaxed font-light">
-                Transforming businesses through strategic coaching and innovative solutions. We don't just provide advice—we create lasting impact.
+                Transforming businesses through strategic coaching and innovative solutions. We don&apos;t just provide advice—we create lasting impact.
               </p>
               <div className="flex gap-4">
                 <button className="px-8 py-4 bg-[#044441] text-white rounded-full font-semibold hover:bg-[#0a6b66] transition-all duration-300 hover:scale-105 shadow-lg">
@@ -110,7 +110,7 @@ const [hoveredStat, setHoveredStat] = useState<number | null>(null);
                     <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
                   </svg>
                   <p className="text-lg text-gray-800 italic font-light">
-                    "Er. Mukesh Bhaskar's ideas and advice have significantly helped both leading business figures and small business owners."
+                    &quot;Er. Mukesh Bhaskar&apos;s ideas and advice have significantly helped both leading business figures and small business owners.&quot;
                   </p>
                 </div>
               </div>

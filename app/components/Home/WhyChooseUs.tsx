@@ -65,7 +65,7 @@ export default function WhoCanJoinUs() {
                 Building a community of dreamers and doers
               </h2>
               <p className="text-gray-300 text-base leading-relaxed">
-                CasCab Group welcomes passionate individuals from all backgrounds who are ready to grow, learn, and create impact across India's diverse industries.
+                CasCab Group welcomes passionate individuals from all backgrounds who are ready to grow, learn, and create impact across India&#39;s diverse industries.
               </p>
             </div>
 
