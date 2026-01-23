@@ -11,14 +11,14 @@ export default function QueryForm() {
     message: ''
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     // Handle form submission logic here
     console.log('Form submitted:', formData);
@@ -51,10 +51,10 @@ export default function QueryForm() {
               </div>
 
               <h1 className="text-white text-5xl md:text-6xl font-bold mb-4 leading-tight">
-                Have a question?<br />We&apos;re here to help
+                Have a question?<br />We're here to help
               </h1>
               <p className="text-gray-300 text-lg leading-relaxed">
-                Whether you&apos;re interested in our spices, seeking business guidance, or exploring partnership opportunities - we&apos;d love to hear from you.
+                Whether you're interested in our spices, seeking business guidance, or exploring partnership opportunities - we'd love to hear from you.
               </p>
             </div>
 
@@ -67,7 +67,7 @@ export default function QueryForm() {
                   </div>
                   <div>
                     <h3 className="text-white font-bold mb-1">Call Us</h3>
-                    <p className="text-gray-300 text-sm">+91 XXXXX XXXXX</p>
+                    <p className="text-gray-300 text-sm">+91 7355 996988</p>
                   </div>
                 </div>
               </div>
@@ -182,7 +182,7 @@ export default function QueryForm() {
                     value={formData.message}
                     onChange={handleChange}
                     required
-                    rows={4}
+                    rows="4"
                     className="w-full pl-12 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#9ae761] focus:border-transparent transition-all resize-none"
                     placeholder="Tell us more about your inquiry..."
                   />
@@ -199,7 +199,7 @@ export default function QueryForm() {
               </button>
 
               <p className="text-gray-500 text-xs text-center">
-                We&apos;ll get back to you within 24 hours
+                We'll get back to you within 24 hours
               </p>
             </form>
           </div>
