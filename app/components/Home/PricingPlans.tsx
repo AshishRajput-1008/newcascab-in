@@ -11,14 +11,15 @@ export default function QueryForm() {
     message: ''
   });
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name as keyof typeof prev]: value
+    }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // Handle form submission logic here
     console.log('Form submitted:', formData);
@@ -51,10 +52,10 @@ export default function QueryForm() {
               </div>
 
               <h1 className="text-white text-5xl md:text-6xl font-bold mb-4 leading-tight">
-                Have a question?<br />We're here to help
+                Have a question?<br />We&apos;re here to help
               </h1>
               <p className="text-gray-300 text-lg leading-relaxed">
-                Whether you're interested in our spices, seeking business guidance, or exploring partnership opportunities - we'd love to hear from you.
+                Whether you&apos;re interested in our spices, seeking business guidance, or exploring partnership opportunities - we&apos;d love to hear from you.
               </p>
             </div>
 
@@ -182,7 +183,7 @@ export default function QueryForm() {
                     value={formData.message}
                     onChange={handleChange}
                     required
-                    rows="4"
+                    rows={4}
                     className="w-full pl-12 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#9ae761] focus:border-transparent transition-all resize-none"
                     placeholder="Tell us more about your inquiry..."
                   />
@@ -199,7 +200,7 @@ export default function QueryForm() {
               </button>
 
               <p className="text-gray-500 text-xs text-center">
-                We'll get back to you within 24 hours
+                We&apos;ll get back to you within 24 hours
               </p>
             </form>
           </div>
