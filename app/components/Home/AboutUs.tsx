@@ -3,6 +3,9 @@ import { useState } from 'react';
 import h1 from "@/app/assets/heroSection/CEO.png";
 import BgImg from "@/app/assets/gallery/cabcab.jpeg";
 import Image from "next/image";
+import ceoImg from "@/app/assets/heroSection/CEO-2.png"
+import s1 from "@/app/assets/gallery/cabcab.jpeg"
+import s3 from "@/app/assets/gallery/cascabImg1compress.jpg"
 
 
 export default function AboutUs() {
@@ -65,12 +68,17 @@ const [hoveredStat, setHoveredStat] = useState<number | null>(null);
                 Transforming businesses through strategic coaching and innovative solutions. We don&apos;t just provide advice—we create lasting impact.
               </p>
               <div className="flex gap-4">
+                <a href='/Ourprofile'> 
                 <button className="px-8 py-4 bg-[#044441] text-white rounded-full font-semibold hover:bg-[#0a6b66] transition-all duration-300 hover:scale-105 shadow-lg">
                   Our Story
                 </button>
+                </a>
+
+                  <a href='/Query'> 
                 <button className="px-8 py-4 border-2 border-[#044441] text-[#044441] rounded-full font-semibold hover:bg-[#044441] hover:text-white transition-all duration-300">
                   Contact Us
                 </button>
+                </a>
               </div>
             </div>
           </div>
@@ -85,13 +93,15 @@ const [hoveredStat, setHoveredStat] = useState<number | null>(null);
             <div className="absolute -top-20 -right-20 w-60 h-60 bg-[#c4d82e]/15 rounded-full blur-3xl"></div>
             <div className="absolute -bottom-20 -left-20 w-60 h-60 bg-[#044441]/15 rounded-full blur-3xl"></div>
             
+
+            <a href='/Ourprofile'>
             <div className="relative z-10">
-              <div className="flex items-start gap-3 mb-8">
-                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#044441] to-[#0a6b66] flex items-center justify-center text-2xl shadow-lg">
-                  👨‍💼
+              <div className="flex items-start gap-3 mb-8 rounded-full">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#044441] to-[#0a6b66] flex items-center justify-center text-2xl shadow-lg">
+                  <img src={s3.src}/>
                 </div>
                 <div>
-                  <h3 className="text-3xl font-bold text-[#032e2c] mb-2">Er. Mukesh Bhaskar</h3>
+                  <h3 className="text-3xl font-bold text-[#032e2c] mb-2 rounded-full">Er. Mukesh Bhaskar</h3>
                   <p className="text-[#c4d82e] font-semibold">Founder & CEO, Cascab</p>
                 </div>
               </div>
@@ -115,15 +125,20 @@ const [hoveredStat, setHoveredStat] = useState<number | null>(null);
                 </div>
               </div>
             </div>
+            </a>
           </div>
 
           {/* CEO Image Card */}
+          
           <div className="lg:col-span-4 bg-gradient-to-br from-[#044441] to-[#0a6b66] rounded-[2.5rem] overflow-hidden shadow-xl relative group min-h-[500px]">
             <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAwIDEwIEwgNDAgMTAgTSAxMCAwIEwgMTAgNDAgTSAwIDIwIEwgNDAgMjAgTSAyMCAwIEwgMjAgNDAgTSAwIDMwIEwgNDAgMzAgTSAzMCAwIEwgMzAgNDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1vcGFjaXR5PSIwLjAzIiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-50"></div>
             
             {/* Enhanced glow effect */}
             <div className="absolute inset-0 bg-gradient-to-br from-[#c4d82e]/30 via-transparent to-[#044441]/30 blur-2xl animate-pulse"></div>
             
+         <a href='/Ourprofile'>
+
+
             <div className="relative h-full p-8 flex flex-col">
               <div className="flex-1 flex items-center justify-center">
                 <div className="w-64 h-64 rounded-full bg-white/10 backdrop-blur-sm border-4 border-white/20 shadow-2xl overflow-hidden relative">
@@ -144,6 +159,7 @@ const [hoveredStat, setHoveredStat] = useState<number | null>(null);
                 <p className="text-white/80 text-sm">Leading businesses to success</p>
               </div>
             </div>
+            </a>
           </div>
         </div>
 

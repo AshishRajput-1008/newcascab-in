@@ -4,6 +4,7 @@ import { ArrowRight, Sparkles } from 'lucide-react';
 import s1 from "@/app/assets/Works/c.jpg"
 import s5 from "@/app/assets/heroSection/CEO.png";
 import s2 from "@/app/assets/heroSection/about.png"
+import s9 from "@/app/assets/gallery/highway treat.jpg"
 
 export default function OurWork() {
   const projects = [
@@ -20,7 +21,7 @@ export default function OurWork() {
         role: "CEO Director",
         avatar: s5.src
       },
-      image: s1.src,
+      image: s2.src,
       layout: "horizontal",
       accent: "lime"
     },
@@ -37,7 +38,7 @@ export default function OurWork() {
         role: "Head Chef",
         avatar: s5.src
       },
-      image: s2.src,
+      image: s9.src,
       layout: "horizontal-reverse",
       accent: "teal"
     },
@@ -103,14 +104,19 @@ export default function OurWork() {
                 Discover our diverse ventures spanning premium spices, authentic cuisine, sustainable farming, and business consultancy.
               </p>
             </div>
+            <a href='/Ourgroup'>
             <button className="hidden md:flex items-center gap-2 bg-[#9ae761] hover:bg-[#b8e827] text-[#0a3d3d] px-8 py-4 rounded-full font-bold text-base transition-all shadow-lg hover:shadow-xl hover:scale-105 whitespace-nowrap group">
               View All Services
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
+            </a>
           </div>
         </div>
 
         {/* Projects Grid */}
+
+<a href='/Ourgroup'>
+
         <div className="space-y-8">
           {projects.map((project, index) => (
             <div 
@@ -126,24 +132,24 @@ export default function OurWork() {
                   <img 
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
+                    className="w-full h-full object-cover transform "
                   />
                   {/* Gradient overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500"></div>
                   
                   {/* Quality Badge */}
-                  <div className="absolute top-6 right-6 bg-white/95 backdrop-blur-sm rounded-2xl px-4 py-3 text-center min-w-[90px] shadow-xl border border-white/50">
+                  {/* <div className="absolute top-6 right-6 bg-white/95 backdrop-blur-sm rounded-2xl px-4 py-3 text-center min-w-[90px] shadow-xl border border-white/50">
                     <div className="flex items-center justify-center gap-1">
                       <span className="text-3xl font-black text-[#044441] leading-none">{project.badge}</span>
                     </div>
                     <div className="text-xs font-bold text-gray-600 mt-1 uppercase tracking-wider">Quality</div>
-                  </div>
+                  </div> */}
 
                   {/* Floating highlight tag */}
-                  <div className="absolute bottom-6 left-6 bg-[#9ae761] text-[#044441] px-5 py-2.5 rounded-full font-bold text-sm shadow-lg flex items-center gap-2 group-hover:scale-105 transition-transform">
+                  {/* <div className="absolute bottom-6 left-6 bg-[#9ae761] text-[#044441] px-5 py-2.5 rounded-full font-bold text-sm shadow-lg flex items-center gap-2 group-hover:scale-105 transition-transform">
                     <Sparkles className="w-4 h-4" />
                     {project.highlight}
-                  </div>
+                  </div> */}
                 </div>
               </div>
 
@@ -204,6 +210,8 @@ export default function OurWork() {
             </div>
           ))}
         </div>
+
+        </a>
 
         {/* Mobile View All Button */}
         <div className="mt-12 md:hidden">

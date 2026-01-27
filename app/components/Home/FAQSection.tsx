@@ -62,12 +62,14 @@ export default function FAQSection() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent"></div>
               
               {/* Get Started Button */}
+              <a href='faq'>
               <button className="absolute bottom-8 left-8 bg-[#9ae761] text-teal-900 px-8 py-3 rounded-full text-lg font-semibold hover:bg-[#b8e827] transition flex items-center gap-3 shadow-lg hover:shadow-xl z-10">
                 Get Started
                 <span className="bg-[#044441] text-white rounded-full w-9 h-9 flex items-center justify-center text-sm">
                   →
                 </span>
               </button>
+              </a>
             </div>
           </div>
 

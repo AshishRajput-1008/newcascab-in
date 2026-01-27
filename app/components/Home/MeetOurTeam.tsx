@@ -5,6 +5,7 @@ import { Play, Image as ImageIcon, Film } from 'lucide-react';
 import s1 from "@/app/assets/gallery/cabcab.jpeg"
 import s3 from "@/app/assets/gallery/cascabImg1compress.jpg"
 import s4 from "@/app/assets/gallery/cascabVideo.mp4"
+import s9 from "@/app/assets/gallery/highway treat.jpg"
 
 export default function MediaGallery() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -97,7 +98,12 @@ export default function MediaGallery() {
           </div>
         </div>
 
+        
         {/* Media Cards */}
+
+        
+<a href='/Media'>
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {mediaItems.map((item) => (
             <div
@@ -159,15 +165,20 @@ export default function MediaGallery() {
             </div>
           ))}
         </div>
+        </a>
 
         {/* Call to Action */}
         <div className="mt-12 text-center">
           <p className="text-gray-600 text-lg mb-6">
             Want to see more of what we do?
           </p>
+
+<a href='/Media'>
+
           <button className="bg-[#9ae761] hover:bg-[#b8e827] text-[#0a3d3d] px-8 py-4 rounded-full font-bold text-base transition-all shadow-lg hover:shadow-xl transform hover:scale-105">
             View Full Gallery
           </button>
+          </a>
         </div>
       </div>
     </div>

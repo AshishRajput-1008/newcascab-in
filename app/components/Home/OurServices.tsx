@@ -1,5 +1,5 @@
 import React from 'react';
-import { CheckCircle2, ArrowUpRight } from 'lucide-react';
+import { CheckCircle2, ArrowUpRight, Lightbulb, TrendingUp, Users, Factory } from 'lucide-react';
 
 import b1 from "@/app/assets/Services/Services -ads.png"
 import b2 from "@/app/assets/Services/audience-services.png"
@@ -9,123 +9,186 @@ import b4 from "@/app/assets/Services/social-media-about-us.png"
 export default function OurGroups() {
   const services = [
     {
-      icon: <img src={b1.src} alt="Spices Division" className="w-8 h-8" />,
-      title: "Spices Division",
-      description: "Premium quality spices blending traditional Indian flavors with modern manufacturing excellence.",
+      icon: <Lightbulb className="w-8 h-8" />,
+      image: b1,
+      title: "Entrepreneurship Development Program",
+      subtitle: "EDP",
+      description: "Transform your business vision into reality.",
       features: [
-        "Authentic masala blends with superior aroma, taste, and color",
-        "State-of-the-art manufacturing ensuring hygiene and quality",
-        "Direct farm sourcing for freshest ingredients and fair pricing"
+    
+        "Market analysis, competitive positioning, and go-to-market strategy development",
+        "Hands-on mentorship from successful entrepreneurs and industry veterans"
       ]
     },
 
     {
-      icon: <img src={b4.src} alt="Political Advisory" className="w-8 h-8" />,
-      title: "Political Advisory",
-      description: "Strategic political consulting and governance solutions for aspiring leaders and public representatives.",
+      icon: <TrendingUp className="w-8 h-8" />,
+      image: b2,
+      title: "Wealth & Life Management",
+      subtitle: "Financial Wellness",
+      description: "Achieve true prosperity through our integrated approach.",
       features: [
-        "Election campaign strategy and grassroots mobilization",
-        "Policy advisory and governance consulting services",
-        "Political communication and media management expertise"
+        "Comprehensive financial planning with tax optimization and wealth accumulation strategies",
+        "Investment portfolio management across equity, real estate, and alternative assets",
       ]
     },
 
     {
-      icon: <img src={b2.src} alt="Skill Development" className="w-8 h-8" />,
-      title: "Skill Development",
-      description: "Empowering communities through comprehensive skill training and entrepreneurship development programs.",
+      icon: <Users className="w-8 h-8" />,
+      image: b3,
+      title: "Leadership Development",
+      subtitle: "Executive Excellence",
+      description: "Cultivate exceptional leadership capabilities that drive organizational success",
       features: [
-        "Entrepreneurship training and business mentorship programs",
-        "Rural development initiatives and farmer skill enhancement",
-        "Youth empowerment through vocational training and placement"
+        "Advanced strategic thinking frameworks and scenario-based decision-making training",
+    
+        "Organizational change management and digital transformation leadership skills",
       ]
     },
 
     {
-      icon: <img src={b3.src} alt="Formulation Labs" className="w-8 h-8" />,
-      title: "Formulation Labs",
-      description: "Cutting-edge research and development in food science, spice formulations, and quality innovation.",
+      icon: <Factory className="w-8 h-8" />,
+      image: b4,
+      title: "Spices & Food Product Formulation",
+      subtitle: "10+ Premium Formulas",
+      description: "Leverage our food science expertise to create distinctive spice blends.",
       features: [
-        "Advanced spice blend research and product innovation",
-        "Quality control and food safety testing facilities",
-        "Custom formulation development for B2B clients"
+        "Custom masala and seasoning development using traditional recipes and modern techniques",
+        "Comprehensive quality assurance including microbiological testing and stability studies",
+       
+      ]
+    },
+
+    {
+      icon: <Factory className="w-8 h-8" />,
+      image: b1,
+      title: "Industry Establishment & Operations",
+      subtitle: "Turnkey Solutions",
+      description: "From concept to commissioning, we provide complete industrial setup.",
+      features: [
+       
+  
+        "Licensing support including factory registration, FSSAI, ISO, and environmental clearances",
+        "Operations manual development, workforce training, and continuous improvement systems"
       ]
     },
   ];
 
   return (
-    <section className="py-16 rounded-3xl bg-gradient-to-b from-[#0a3d3d] to-[#08302e] py-32 px-6 overflow-hidden">
-      <div className="max-w-7xl mx-auto">
+    <section className="py-20 rounded-3xl bg-gradient-to-br from-[#0a3d3d] via-[#0c4544] to-[#08302e] px-6 overflow-hidden relative">
+      {/* Subtle background pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute inset-0" style={{
+          backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
+          backgroundSize: '40px 40px'
+        }}></div>
+      </div>
+
+      <div className="max-w-[1600px] mx-auto relative z-10">
         {/* Header */}
-        <div className="text-center mb-32">
-          <div className="flex items-center justify-center gap-3 mb-8">
-            <div className="relative w-7 h-7 border-2 border-[white] rounded-full flex items-center justify-center">
-              <span className="w-2.5 h-2.5 bg-[#9ae761] rounded-full animate-pulse"></span>
+        <div className="text-center mb-20">
+          <div className="flex items-center justify-center gap-3 mb-6">
+            <div className="relative w-8 h-8 border-2 border-white/40 rounded-full flex items-center justify-center backdrop-blur-sm">
+              <span className="w-3 h-3 bg-[#9ae761] rounded-full animate-pulse shadow-lg shadow-[#9ae761]/50"></span>
             </div>
-            <span className="text-[white] mt-1 text-sm font-bold tracking-[0.2em] uppercase">
-              Our Groups
+            <span className="text-white/90 text-xs font-semibold tracking-[0.25em] uppercase">
+              Our Business Divisions
             </span>
           </div>
 
-          <h2 className="text-white text-5xl md:text-6xl font-bold mb-4 leading-tight">
-            Diversified Excellence<br />Across Industries
+          <h2 className="text-white text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+            Integrated Excellence<br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#a8e063] to-[#7bc844]">
+              Across Multiple Sectors
+            </span>
           </h2>
-          <p className="text-white/70 text-lg max-w-2xl mx-auto">
-            CasCab Group operates across multiple sectors, driving innovation and creating value through our integrated business divisions.
+          <p className="text-white/60 text-lg md:text-xl max-w-3xl mx-auto leading-relaxed">
+            CasCab Group delivers specialized expertise across five strategic business verticals, 
+            combining industry knowledge with innovative solutions to drive sustainable growth.
           </p>
         </div>
 
-        {/* Services Grid - Staggered Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Services Grid - All in one row on desktop */}
+        <a href='/Ourgroup'>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
           {services.map((service, index) => (
             <div
               key={index}
-              className={`transform transition-all duration-500 hover:scale-105 ${
-                index % 2 === 0 ? 'lg:mt-0' : 'lg:mt-12'
-              }`}
+              className="transform transition-all duration-500 hover:scale-[1.02] group"
+              style={{
+                animationDelay: `${index * 100}ms`
+              }}
             >
-              <div className="bg-white rounded-3xl p-8 relative group hover:shadow-2xl hover:shadow-[#a8e063]/20 transition-all duration-300 h-full border border-transparent hover:border-[#a8e063]/20">
+              <div className="bg-white rounded-2xl p-7 relative overflow-hidden hover:shadow-2xl hover:shadow-[#a8e063]/30 transition-all duration-500 h-full border border-gray-100 hover:border-[#a8e063]/30 flex flex-col">
                 {/* Gradient Overlay on Hover */}
-                <div className="absolute inset-0 bg-gradient-to-br from-[#a8e063]/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-3xl"></div>
+                <div className="absolute inset-0 bg-gradient-to-br from-[#a8e063]/0 via-[#a8e063]/5 to-[#a8e063]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-                {/* Arrow Button */}
-                <button className="absolute top-6 right-6 w-12 h-12 bg-gradient-to-br from-[#f5f5f5] to-[#e8e8e8] rounded-full flex items-center justify-center group-hover:from-[#a8e063] group-hover:to-[#98d053] transition-all duration-300 shadow-lg z-10">
-                  <ArrowUpRight className="w-5 h-5 text-[#0a3d3d] group-hover:rotate-45 group-hover:scale-110 transition-transform duration-300" />
-                </button>
+                {/* Top glow effect */}
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#a8e063] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-                {/* Icon */}
-                <div className="w-20 h-20 bg-gradient-to-br from-[#a8e063]/20 to-[#a8e063]/5 rounded-2xl flex items-center justify-center mb-6 text-[#0a3d3d] group-hover:scale-110 transition-transform duration-300 shadow-sm">
-                  {service.icon}
+                {/* Content wrapper */}
+                <div className="relative z-10 flex flex-col h-full">
+                  {/* Icon Container */}
+                  <div className="flex items-start justify-between mb-6">
+                    <div className="w-16 h-16 bg-gradient-to-br from-[#a8e063]/20 via-[#a8e063]/10 to-transparent rounded-xl flex items-center justify-center text-[#0a3d3d] group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 shadow-sm border border-[#a8e063]/20">
+                      {service.icon}
+                    </div>
+
+                    {/* Arrow Button */}
+                    <button className="w-10 h-10 bg-gradient-to-br from-gray-100 to-gray-50 rounded-full flex items-center justify-center group-hover:from-[#a8e063] group-hover:to-[#98d053] transition-all duration-500 shadow-md hover:shadow-lg">
+                      <ArrowUpRight className="w-4 h-4 text-[#0a3d3d] group-hover:rotate-45 group-hover:scale-110 transition-transform duration-500" />
+                    </button>
+                  </div>
+
+                  {/* Subtitle Tag */}
+                  {/* <div className="inline-flex mb-3">
+                    <span className="text-[10px] font-bold uppercase tracking-wider px-3 py-1 bg-[#a8e063]/10 text-[#0a3d3d] rounded-full border border-[#a8e063]/20">
+                      {service.subtitle}
+                    </span>
+                  </div> */}
+
+                  {/* Title */}
+                  <h3 className="text-[#0a3d3d] text-lg font-bold mb-3 leading-tight group-hover:text-[#0a3d3d] transition-colors min-h-[3.5rem]">
+                    {service.title}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="text-gray-600 text-xs mb-5 leading-relaxed line-clamp-4">
+                    {service.description}
+                  </p>
+
+                  {/* Divider */}
+                  <div className="w-10 h-0.5 bg-gradient-to-r from-[#a8e063] to-transparent mb-5 rounded-full group-hover:w-16 transition-all duration-500"></div>
+
+                  {/* Features List */}
+                  <ul className="space-y-2.5 flex-grow">
+                    {service.features.map((feature, idx) => (
+                      <li key={idx} className="flex items-start gap-2.5 text-xs text-gray-700 group/item">
+                        <CheckCircle2 className="w-4 h-4 text-[#a8e063] flex-shrink-0 mt-0.5 group-hover/item:scale-110 transition-transform" />
+                        <span className="leading-relaxed">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
 
-                {/* Title */}
-                <h3 className="text-[#0a3d3d] text-xl font-bold mb-3 group-hover:text-[#0a3d3d] transition-colors">
-                  {service.title}
-                </h3>
-
-                {/* Description */}
-                <p className="text-gray-600 text-sm mb-6 leading-relaxed">
-                  {service.description}
-                </p>
-
-                {/* Divider */}
-                <div className="w-12 h-1 bg-gradient-to-r from-[#a8e063] to-transparent mb-6 rounded-full"></div>
-
-                {/* Features List */}
-                <ul className="space-y-3">
-                  {service.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-start gap-3 text-sm text-gray-700 group/item hover:text-[#0a3d3d] transition-colors">
-                      <CheckCircle2 className="w-5 h-5 text-[#a8e063] flex-shrink-0 mt-0.5 group-hover/item:scale-110 transition-transform" />
-                      <span className="leading-relaxed">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                {/* Bottom Accent */}
-                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#a8e063] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-b-3xl"></div>
+                {/* Bottom accent line */}
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#a8e063] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               </div>
             </div>
           ))}
+        </div>
+        </a>
+
+        {/* Bottom CTA */}
+        <div className="text-center mt-16">
+          <p className="text-white/50 text-sm mb-4">
+            Interested in partnering with us or learning more about our services?
+          </p>
+          <a href='/Query'>
+          <button className="px-8 py-3 bg-gradient-to-r from-[#a8e063] to-[#98d053] text-[#0a3d3d] font-semibold rounded-full hover:shadow-2xl hover:shadow-[#a8e063]/50 transition-all duration-300 hover:scale-105">
+            Get in Touch
+          </button>
+          </a>
         </div>
       </div>
     </section>

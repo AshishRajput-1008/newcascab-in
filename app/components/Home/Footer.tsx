@@ -1,43 +1,80 @@
-'use client'
-import { useState } from 'react';
+"use client";
+import { useState } from "react";
 import logo from "@/app/assets/heroSection/ChatGPT Image Nov 20, 2025, 06_19_01 PM.png";
-import { Mail, Phone, ArrowUp, Send, MapPin, Facebook, Twitter, Linkedin, Instagram, Youtube } from 'lucide-react';
+import {
+  Mail,
+  Phone,
+  ArrowUp,
+  Send,
+  MapPin,
+  Facebook,
+  Twitter,
+  Linkedin,
+  Instagram,
+  Youtube,
+} from "lucide-react";
 
 export default function Footer() {
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState("");
   const [hoveredLink, setHoveredLink] = useState<string | null>(null);
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const companyLinks = [
-    { name: 'About Us', href: '#about' },
-    { name: 'Our Team', href: '#team' },
-    { name: 'Career', href: '#career', badge: 'NEW' },
-    { name: 'Contact Us', href: '#contact' }
+    { name: "About Us", href: "#about" },
+    { name: "Our Team", href: "#team" },
+    { name: "Career", href: "#career", badge: "NEW" },
+    { name: "Contact Us", href: "#contact" },
   ];
 
   const servicesLinks = [
-    { name: 'Spices Manufacturing', href: '#spices' },
-    { name: 'Highway Treet Restaurant', href: '#restaurant' },
-    { name: 'Research & Organic Farming', href: '#farming' },
-    { name: 'Consultancy Services', href: '#consultancy' }
+    { name: "Spices Manufacturing", href: "#spices" },
+    { name: "Highway Treet Restaurant", href: "#restaurant" },
+    { name: "Research & Organic Farming", href: "#farming" },
+    { name: "Consultancy Services", href: "#consultancy" },
   ];
 
   const resourcesLinks = [
-    { name: 'Media Gallery', href: '#gallery' },
-    { name: 'Success Stories', href: '#stories' },
-    { name: 'FAQs', href: '#faq' },
-    { name: 'Blog', href: '#blog' }
+    { name: "Media Gallery", href: "#gallery" },
+    { name: "Success Stories", href: "#stories" },
+    { name: "FAQs", href: "#faq" },
+    { name: "Blog", href: "#blog" },
   ];
 
   const socialLinks = [
-    { name: 'LinkedIn', icon: <Linkedin className="w-5 h-5" />, href: '#', color: 'hover:bg-[#0A66C2]' },
-    { name: 'Facebook', icon: <Facebook className="w-5 h-5" />, href: '#', color: 'hover:bg-[#1877F2]' },
-    { name: 'Twitter', icon: <Twitter className="w-5 h-5" />, href: '#', color: 'hover:bg-[#1DA1F2]' },
-    { name: 'YouTube', icon: <Youtube className="w-5 h-5" />, href: '#', color: 'hover:bg-[#FF0000]' },
-    { name: 'Instagram', icon: <Instagram className="w-5 h-5" />, href: '#', color: 'hover:bg-gradient-to-br hover:from-[#833AB4] hover:via-[#FD1D1D] hover:to-[#F77737]' }
+    {
+      name: "LinkedIn",
+      icon: <Linkedin className="w-5 h-5" />,
+      href: "#",
+      color: "hover:bg-[#0A66C2]",
+    },
+    {
+      name: "Facebook",
+      icon: <Facebook className="w-5 h-5" />,
+      href: "#",
+      color: "hover:bg-[#1877F2]",
+    },
+    {
+      name: "Twitter",
+      icon: <Twitter className="w-5 h-5" />,
+      href: "#",
+      color: "hover:bg-[#1DA1F2]",
+    },
+    {
+      name: "YouTube",
+      icon: <Youtube className="w-5 h-5" />,
+      href: "#",
+      color: "hover:bg-[#FF0000]",
+    },
+    {
+      name: "Instagram",
+      icon: <Instagram className="w-5 h-5" />,
+      href: "#",
+      color:
+        "hover:bg-gradient-to-br hover:from-[#833AB4] hover:via-[#FD1D1D] hover:to-[#F77737]",
+    },
   ];
 
   return (
@@ -57,15 +94,17 @@ export default function Footer() {
 
             <div className="relative flex flex-col lg:flex-row items-center justify-between gap-8">
               <div className="flex-1 max-w-2xl">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-12 h-12 rounded-2xl bg-[#0a3d3d] flex items-center justify-center shadow-lg">
-                    <ArrowUp className="w-6 h-6 text-[#a8e063]" />
+                <a href="Query">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="w-12 h-12 rounded-2xl bg-[#0a3d3d] flex items-center justify-center shadow-lg">
+                      <ArrowUp className="w-6 h-6 text-[#a8e063]" />
+                    </div>
+                    <span className="text-[#0a3d3d] font-bold text-sm uppercase tracking-[0.2em]">
+                      Get Started
+                    </span>
                   </div>
-                  <span className="text-[#0a3d3d] font-bold text-sm uppercase tracking-[0.2em]">
-                    Get Started
-                  </span>
-                </div>
-                
+                </a>
+
                 <h2 className="text-[#0a3d3d] text-4xl md:text-5xl lg:text-6xl font-black mb-6 leading-[1.1]">
                   Ready to achieve
                   <span className="block mt-2">Financial freedom &</span>
@@ -73,18 +112,21 @@ export default function Footer() {
                     Business success?
                   </span>
                 </h2>
-                
+
                 <p className="text-[#0a3d3d] text-lg md:text-xl opacity-80 leading-relaxed">
-                  Join CasCab Group and unlock your inner strength and potential for lasting success.
+                  Join CasCab Group and unlock your inner strength and potential
+                  for lasting success.
                 </p>
               </div>
 
-              <button className="group relative bg-[#0a3d3d] text-white px-10 py-5 rounded-full font-bold text-lg hover:bg-[#044441] transition-all duration-300 shadow-2xl hover:shadow-[0_20px_60px_rgba(10,61,61,0.4)] hover:scale-105">
-                <span className="flex items-center gap-3">
-                  Get Started Now
-                  <ArrowUp className="w-6 h-6 rotate-45 group-hover:rotate-90 transition-transform duration-300" />
-                </span>
-              </button>
+              <a href="/Query">
+                <button className="group relative bg-[#0a3d3d] text-white px-10 py-5 rounded-full font-bold text-lg hover:bg-[#044441] transition-all duration-300 shadow-2xl hover:shadow-[0_20px_60px_rgba(10,61,61,0.4)] hover:scale-105">
+                  <span className="flex items-center gap-3">
+                    Get Started Now
+                    <ArrowUp className="w-6 h-6 rotate-45 group-hover:rotate-90 transition-transform duration-300" />
+                  </span>
+                </button>
+              </a>
             </div>
           </div>
         </div>
@@ -92,13 +134,14 @@ export default function Footer() {
         {/* Main Footer Content */}
         <div className="max-w-[1400px] mx-auto px-6 md:px-12 py-16">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 mb-16">
-            
             {/* Newsletter Section - Spans More Columns */}
             <div className="lg:col-span-5">
               <div className="bg-white/5 backdrop-blur-sm rounded-3xl p-8 border border-white/10 h-full">
                 <h3 className="text-2xl md:text-3xl font-bold mb-6 leading-tight">
                   Stay updated with us
-                  <span className="block text-[#a8e063] mt-1">Let Me Help You Overshoot Your Goals in the Right Ways.</span>
+                  <span className="block text-[#a8e063] mt-1">
+                    Let Me Help You Overshoot Your Goals in the Right Ways.
+                  </span>
                 </h3>
 
                 {/* Newsletter Form */}
@@ -145,7 +188,6 @@ export default function Footer() {
 
             {/* Links Grid */}
             <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-8">
-              
               {/* Company Links */}
               <div>
                 <h4 className="font-bold text-sm uppercase tracking-[0.2em] text-[#a8e063] mb-6 flex items-center gap-2">
@@ -161,7 +203,9 @@ export default function Footer() {
                         onMouseEnter={() => setHoveredLink(`company-${index}`)}
                         onMouseLeave={() => setHoveredLink(null)}
                       >
-                        <span className={`text-base transition-colors ${hoveredLink === `company-${index}` ? 'text-[#a8e063]' : 'text-white/90'}`}>
+                        <span
+                          className={`text-base transition-colors ${hoveredLink === `company-${index}` ? "text-[#a8e063]" : "text-white/90"}`}
+                        >
                           {link.name}
                         </span>
                         {link.badge && (
@@ -174,8 +218,6 @@ export default function Footer() {
                   ))}
                 </ul>
               </div>
-
-             
 
               {/* Resources Links */}
               <div>
@@ -192,7 +234,9 @@ export default function Footer() {
                         onMouseEnter={() => setHoveredLink(`resource-${index}`)}
                         onMouseLeave={() => setHoveredLink(null)}
                       >
-                        <span className={`text-base transition-colors ${hoveredLink === `resource-${index}` ? 'text-[#a8e063]' : 'text-white/90'}`}>
+                        <span
+                          className={`text-base transition-colors ${hoveredLink === `resource-${index}` ? "text-[#a8e063]" : "text-white/90"}`}
+                        >
                           {link.name}
                         </span>
                       </a>
@@ -201,9 +245,7 @@ export default function Footer() {
                 </ul>
               </div>
 
-
-
-               {/* Services Links */}
+              {/* Services Links */}
               <div>
                 <h4 className="font-bold text-sm uppercase tracking-[0.2em] text-[#a8e063] mb-6 flex items-center gap-2">
                   <div className="w-8 h-[2px] bg-[#a8e063]"></div>
@@ -218,7 +260,9 @@ export default function Footer() {
                         onMouseEnter={() => setHoveredLink(`service-${index}`)}
                         onMouseLeave={() => setHoveredLink(null)}
                       >
-                        <span className={`text-base transition-colors ${hoveredLink === `service-${index}` ? 'text-[#a8e063]' : 'text-white/90'}`}>
+                        <span
+                          className={`text-base transition-colors ${hoveredLink === `service-${index}` ? "text-[#a8e063]" : "text-white/90"}`}
+                        >
                           {link.name}
                         </span>
                       </a>
@@ -226,8 +270,6 @@ export default function Footer() {
                   ))}
                 </ul>
               </div>
-
-              
             </div>
           </div>
 
@@ -239,7 +281,9 @@ export default function Footer() {
                   <Phone className="w-6 h-6 text-[#0a3d3d]" />
                 </div>
                 <div>
-                  <div className="text-xs text-white/60 uppercase tracking-wider mb-1">Call Us</div>
+                  <div className="text-xs text-white/60 uppercase tracking-wider mb-1">
+                    Call Us
+                  </div>
                   <div className="font-bold text-base">+91 7355996988</div>
                 </div>
               </div>
@@ -251,7 +295,9 @@ export default function Footer() {
                   <Mail className="w-6 h-6 text-[#0a3d3d]" />
                 </div>
                 <div>
-                  <div className="text-xs text-white/60 uppercase tracking-wider mb-1">Email</div>
+                  <div className="text-xs text-white/60 uppercase tracking-wider mb-1">
+                    Email
+                  </div>
                   <div className="font-bold text-base">help@cascab.com</div>
                 </div>
               </div>
@@ -263,8 +309,12 @@ export default function Footer() {
                   <MapPin className="w-6 h-6 text-[#0a3d3d]" />
                 </div>
                 <div>
-                  <div className="text-xs text-white/60 uppercase tracking-wider mb-1">Location</div>
-                  <div className="font-bold text-sm leading-tight">Bhopal, MP, India</div>
+                  <div className="text-xs text-white/60 uppercase tracking-wider mb-1">
+                    Location
+                  </div>
+                  <div className="font-bold text-sm leading-tight">
+                    Bhopal, MP, India
+                  </div>
                 </div>
               </div>
             </div>
@@ -278,8 +328,10 @@ export default function Footer() {
             {/* Address & Copyright */}
             <div className="text-center lg:text-left order-2 lg:order-1">
               <div className="text-white/90 text-sm leading-relaxed mb-2">
-                <strong className="text-white">Cascab Pvt. Ltd.</strong><br />
-                EWS-81 Vivekanand Nagar, Karond<br />
+                <strong className="text-white">Cascab Pvt. Ltd.</strong>
+                <br />
+                EWS-81 Vivekanand Nagar, Karond
+                <br />
                 Bhopal (MP), PIN-462038, India
               </div>
               <div className="text-white/60 text-sm">
@@ -295,7 +347,7 @@ export default function Footer() {
             </div>
 
             {/* Back to Top Button */}
-            <button 
+            <button
               onClick={scrollToTop}
               className="group flex items-center gap-3 bg-[#a8e063] text-[#0a3d3d] px-6 py-3 rounded-full font-bold hover:bg-[#b8f073] transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 order-3"
             >

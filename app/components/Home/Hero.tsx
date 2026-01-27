@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useEffect } from "react";
 import {
   ChevronDown,
@@ -15,16 +15,17 @@ import {
 import logo2 from "@/app/assets/heroSection/ChatGPT Image Nov 20, 2025, 06_19_01 PM.png";
 import heroImage from "@/app/assets/gallery/cascab2.jpeg";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Hero() {
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
 
   // Initialize Google Translate
   useEffect(() => {
-    if (typeof window === 'undefined') return;
+    if (typeof window === "undefined") return;
 
     // Add Google Translate configuration
-    const configScript = document.createElement('script');
+    const configScript = document.createElement("script");
     configScript.innerHTML = `
       window.gtranslateSettings = {
         default_language: "en",
@@ -41,23 +42,26 @@ export default function Hero() {
     document.body.appendChild(configScript);
 
     // Add Google Translate script
-    const translateScript = document.createElement('script');
-    translateScript.src = 'https://cdn.gtranslate.net/widgets/latest/dropdown.js';
+    const translateScript = document.createElement("script");
+    translateScript.src =
+      "https://cdn.gtranslate.net/widgets/latest/dropdown.js";
     translateScript.defer = true;
     document.body.appendChild(translateScript);
 
     return () => {
       // Cleanup scripts on unmount
-      if (configScript.parentNode) configScript.parentNode.removeChild(configScript);
-      if (translateScript.parentNode) translateScript.parentNode.removeChild(translateScript);
+      if (configScript.parentNode)
+        configScript.parentNode.removeChild(configScript);
+      if (translateScript.parentNode)
+        translateScript.parentNode.removeChild(translateScript);
     };
   }, []);
 
   // Indian client avatars
   const indianClients = [
-    "https://i.pravatar.cc/150?img=12",
-    "https://i.pravatar.cc/150?img=15",
-    "https://i.pravatar.cc/150?img=33",
+    "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
+    "https://images.pexels.com/photos/1222271/pexels-photo-1222271.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
+    "https://images.pexels.com/photos/1516680/pexels-photo-1516680.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&fit=crop",
   ];
 
   return (
@@ -113,7 +117,7 @@ export default function Hero() {
           appearance: none;
           -webkit-appearance: none;
           -moz-appearance: none;
-          background-color: #b9f57c ;
+          background-color: #b9f57c;
           color: #0a3d35;
           padding: 0.625rem 2.25rem 0.625rem 1rem;
           border: 1.5px solid rgba(138, 200, 75, 0.4);
@@ -123,7 +127,7 @@ export default function Hero() {
           line-height: 1.25;
           letter-spacing: 0.01em;
           cursor: pointer;
-          box-shadow: 
+          box-shadow:
             0 2px 4px rgba(0, 0, 0, 0.08),
             0 4px 8px rgba(0, 0, 0, 0.06),
             inset 0 -1px 2px rgba(255, 255, 255, 0.25),
@@ -147,7 +151,7 @@ export default function Hero() {
         .mobile-translate .gtranslate_wrapper select:hover {
           background: linear-gradient(135deg, #c5f88a 0%, #a8ed70 100%);
           border-color: rgba(138, 200, 75, 0.6);
-          box-shadow: 
+          box-shadow:
             0 4px 6px rgba(0, 0, 0, 0.1),
             0 6px 12px rgba(0, 0, 0, 0.08),
             inset 0 -1px 2px rgba(255, 255, 255, 0.3),
@@ -157,7 +161,7 @@ export default function Hero() {
 
         .mobile-translate .gtranslate_wrapper select:active {
           transform: translateY(0) scale(0.98);
-          box-shadow: 
+          box-shadow:
             0 1px 2px rgba(0, 0, 0, 0.1),
             inset 0 1px 3px rgba(0, 0, 0, 0.1);
         }
@@ -165,7 +169,7 @@ export default function Hero() {
         .mobile-translate .gtranslate_wrapper select:focus {
           outline: none;
           border-color: #7ac62f;
-          box-shadow: 
+          box-shadow:
             0 0 0 3px rgba(162, 241, 99, 0.25),
             0 4px 8px rgba(0, 0, 0, 0.12),
             inset 0 -1px 2px rgba(255, 255, 255, 0.3);
@@ -224,34 +228,58 @@ export default function Hero() {
         {/* Decorative background elements */}
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-lime-400/10 rounded-full blur-3xl"></div>
         <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-teal-600/10 rounded-full blur-3xl"></div>
-        
+
         {/* Content wrapper */}
         <div className="relative z-10">
           {/* Navigation */}
           <nav className="container mx-auto px-6 lg:px-8 py-6">
             <div className="flex items-center justify-between gap-4">
               {/* Logo */}
-              <div className="flex items-center">
+              <Link href="/" className="flex items-center">
                 <img
                   src={logo2.src}
                   alt="CasCab Logo"
-                  className="w-24 h-24 lg:w-28 lg:h-28"
+                  className="w-24 h-24 lg:w-30 lg:h-30"
                 />
-              </div>
+              </Link>
 
               {/* Desktop Navigation */}
               <div className="hidden lg:flex items-center gap-6 xl:gap-8">
-                <a href="#" className="text-lime-400 text-base font-semibold hover:text-lime-300 transition-colors whitespace-nowrap">
+                <Link
+                  href="/profile"
+                  className="text-lime-400 text-base font-semibold hover:text-lime-300 transition-colors whitespace-nowrap"
+                >
                   Our Profile
-                </a>
-                <a href="#" className="font-semibold text-white text-base hover:text-lime-400 transition-colors whitespace-nowrap">
-                  Startup Programs
-                </a>
+                </Link>
+                <Link
+                  href="/startups"
+                  className="font-semibold text-white text-base hover:text-lime-400 transition-colors whitespace-nowrap"
+                >
+                  Startups
+                </Link>
                 <div className="relative group">
                   <button className="flex font-semibold items-center gap-1 text-white text-base hover:text-lime-400 transition-colors whitespace-nowrap">
                     Opportunities
                     <ChevronDown className="w-4 h-4" />
                   </button>
+                  <div className="absolute left-0 mt-2 w-48 bg-white text-gray-800 shadow-xl rounded-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 p-2 z-50">
+                    <Link
+                      href="/opportunities/current"
+                      className="flex items-center gap-2 px-4 py-3 hover:bg-gray-50 rounded-xl transition cursor-pointer"
+                    >
+                      <FolderKanban className="w-4 h-4 text-teal-600" />
+                      <span className="text-sm font-medium">
+                        Current Opportunities
+                      </span>
+                    </Link>
+                    <Link
+                      href="/opportunities/upcoming"
+                      className="flex items-center gap-2 px-4 py-3 hover:bg-gray-50 rounded-xl transition cursor-pointer"
+                    >
+                      <Star className="w-4 h-4 text-teal-600" />
+                      <span className="text-sm font-medium">Upcoming</span>
+                    </Link>
+                  </div>
                 </div>
                 <div className="relative group">
                   <button className="font-semibold flex items-center gap-1 text-white text-base hover:text-lime-400 transition-colors whitespace-nowrap">
@@ -259,18 +287,27 @@ export default function Hero() {
                     <ChevronDown className="w-4 h-4" />
                   </button>
                   <div className="absolute left-0 mt-2 w-48 bg-white text-gray-800 shadow-xl rounded-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 p-2 z-50">
-                    <a className="flex items-center gap-2 px-4 py-3 hover:bg-gray-50 rounded-xl transition cursor-pointer">
+                    <Link
+                      href="/media/group"
+                      className="flex items-center gap-2 px-4 py-3 hover:bg-gray-50 rounded-xl transition cursor-pointer"
+                    >
                       <Users className="w-4 h-4 text-teal-600" />
                       <span className="text-sm font-medium">Our Group</span>
-                    </a>
-                    <a className="flex items-center gap-2 px-4 py-3 hover:bg-gray-50 rounded-xl transition cursor-pointer">
+                    </Link>
+                    <Link
+                      href="/media/gallery"
+                      className="flex items-center gap-2 px-4 py-3 hover:bg-gray-50 rounded-xl transition cursor-pointer"
+                    >
                       <FolderKanban className="w-4 h-4 text-teal-600" />
-                      <span className="text-sm font-medium">Contact</span>
-                    </a>
-                    <a className="flex items-center gap-2 px-4 py-3 hover:bg-gray-50 rounded-xl transition cursor-pointer">
-                      <HelpCircle className="w-4 h-4 text-teal-600" />
-                      <span className="text-sm font-medium">FAQs</span>
-                    </a>
+                      <span className="text-sm font-medium">Gallery</span>
+                    </Link>
+                    <Link
+                      href="/media/news"
+                      className="flex items-center gap-2 px-4 py-3 hover:bg-gray-50 rounded-xl transition cursor-pointer"
+                    >
+                      <Newspaper className="w-4 h-4 text-teal-600" />
+                      <span className="text-sm font-medium">News</span>
+                    </Link>
                   </div>
                 </div>
                 <div className="relative group">
@@ -279,19 +316,28 @@ export default function Hero() {
                     <ChevronDown className="w-4 h-4" />
                   </button>
                   <div className="absolute left-0 mt-2 w-48 bg-white text-gray-800 shadow-xl rounded-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 p-2 z-50">
-                    <a className="flex items-center gap-2 px-4 py-3 hover:bg-gray-50 rounded-xl transition cursor-pointer">
-                      <Newspaper className="w-4 h-4 text-teal-600" />
-                      <span className="text-sm font-medium">Latest Posts</span>
-                    </a>
-                    <a className="flex items-center gap-2 px-4 py-3 hover:bg-gray-50 rounded-xl transition cursor-pointer">
+                    <Link
+                      href="/query/faq"
+                      className="flex items-center gap-2 px-4 py-3 hover:bg-gray-50 rounded-xl transition cursor-pointer"
+                    >
+                      <HelpCircle className="w-4 h-4 text-teal-600" />
+                      <span className="text-sm font-medium">FAQs</span>
+                    </Link>
+                    <Link
+                      href="/query/blog"
+                      className="flex items-center gap-2 px-4 py-3 hover:bg-gray-50 rounded-xl transition cursor-pointer"
+                    >
                       <BookOpen className="w-4 h-4 text-teal-600" />
-                      <span className="text-sm font-medium">Case Studies</span>
-                    </a>
+                      <span className="text-sm font-medium">Blog</span>
+                    </Link>
                   </div>
                 </div>
-                <a href="#" className="font-semibold text-white text-base hover:text-lime-400 transition-colors whitespace-nowrap">
+                <Link
+                  href="/contact"
+                  className="font-semibold text-white text-base hover:text-lime-400 transition-colors whitespace-nowrap"
+                >
                   Contact
-                </a>
+                </Link>
               </div>
 
               {/* Right Side Actions - Language & FAQ */}
@@ -302,12 +348,14 @@ export default function Hero() {
                 </div>
 
                 {/* FAQ Button */}
-                <button className="bg-[#9ae761] text-teal-900 px-6 py-2.5 rounded-full text-sm font-bold hover:bg-lime-300 transition-all duration-300 flex items-center gap-2 shadow-lg hover:shadow-xl hover:scale-105 whitespace-nowrap">
-                  FAQ
-                  <span className="bg-[#044441] text-white rounded-full w-7 h-7 flex items-center justify-center text-xs transition-transform group-hover:rotate-45">
-                    →
-                  </span>
-                </button>
+                <Link href="/faq">
+                  <button className="bg-[#9ae761] text-teal-900 px-6 py-2.5 rounded-full text-sm font-bold hover:bg-lime-300 transition-all duration-300 flex items-center gap-2 shadow-lg hover:shadow-xl hover:scale-105 whitespace-nowrap">
+                    FAQ
+                    <span className="bg-[#044441] text-white rounded-full w-7 h-7 flex items-center justify-center text-xs transition-transform group-hover:rotate-45">
+                      →
+                    </span>
+                  </button>
+                </Link>
               </div>
 
               {/* Mobile: Language Button & Menu Button */}
@@ -318,11 +366,15 @@ export default function Hero() {
                 </div>
 
                 {/* Mobile Menu Toggle Button */}
-                <button 
-                  onClick={() => setMobileMenuOpen(!mobileMenuOpen)} 
+                <button
+                  onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                   className="flex items-center justify-center w-10 h-10 text-white hover:bg-white/10 rounded-xl transition-all active:scale-95 border border-white/20"
                 >
-                  {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+                  {mobileMenuOpen ? (
+                    <X className="w-5 h-5" />
+                  ) : (
+                    <Menu className="w-5 h-5" />
+                  )}
                 </button>
               </div>
             </div>
@@ -331,139 +383,250 @@ export default function Hero() {
             {mobileMenuOpen && (
               <div className="lg:hidden mt-4 bg-white/10 backdrop-blur-lg rounded-2xl p-4 space-y-2">
                 {/* Navigation Links */}
-                <a href="#" className="block text-lime-400 font-semibold py-2.5 px-4 rounded-lg hover:bg-white/10 transition">Our Profile</a>
-                <a href="#" className="block text-white font-semibold py-2.5 px-4 rounded-lg hover:bg-white/10 transition">Startup Programs</a>
-                <a href="#" className="block text-white font-semibold py-2.5 px-4 rounded-lg hover:bg-white/10 transition">Opportunities</a>
-                <a href="#" className="block text-white font-semibold py-2.5 px-4 rounded-lg hover:bg-white/10 transition">Media</a>
-                <a href="#" className="block text-white font-semibold py-2.5 px-4 rounded-lg hover:bg-white/10 transition">Query</a>
-                <a href="#" className="block text-white font-semibold py-2.5 px-4 rounded-lg hover:bg-white/10 transition">Contact</a>
-                
+                <Link
+                  href="/profile"
+                  className="block text-lime-400 font-semibold py-2.5 px-4 rounded-lg hover:bg-white/10 transition"
+                >
+                  Our Profile
+                </Link>
+                <Link
+                  href="/startups"
+                  className="block text-white font-semibold py-2.5 px-4 rounded-lg hover:bg-white/10 transition"
+                >
+                  Startups
+                </Link>
+                <Link
+                  href="/opportunities"
+                  className="block text-white font-semibold py-2.5 px-4 rounded-lg hover:bg-white/10 transition"
+                >
+                  Opportunities
+                </Link>
+                <Link
+                  href="/media"
+                  className="block text-white font-semibold py-2.5 px-4 rounded-lg hover:bg-white/10 transition"
+                >
+                  Media
+                </Link>
+                <Link
+                  href="/query"
+                  className="block text-white font-semibold py-2.5 px-4 rounded-lg hover:bg-white/10 transition"
+                >
+                  Query
+                </Link>
+                <Link
+                  href="/contact"
+                  className="block text-white font-semibold py-2.5 px-4 rounded-lg hover:bg-white/10 transition"
+                >
+                  Contact
+                </Link>
+
                 {/* Divider */}
                 <div className="border-t border-white/20 my-3"></div>
 
                 {/* Mobile FAQ Button */}
-                <button className="w-full bg-[#9ae761] text-teal-900 px-6 py-3.5 rounded-xl text-base font-bold hover:bg-lime-300 transition-all duration-300 flex items-center justify-center gap-3 shadow-lg hover:shadow-xl active:scale-95">
-                  FAQ
-                  <span className="bg-[#044441] text-white rounded-full w-8 h-8 flex items-center justify-center text-sm">
-                    →
-                  </span>
-                </button>
+                <Link href="/faq" className="block">
+                  <button className="w-full bg-[#9ae761] text-teal-900 px-6 py-3.5 rounded-xl text-base font-bold hover:bg-lime-300 transition-all duration-300 flex items-center justify-center gap-3 shadow-lg hover:shadow-xl active:scale-95">
+                    FAQ
+                    <span className="bg-[#044441] text-white rounded-full w-8 h-8 flex items-center justify-center text-sm">
+                      →
+                    </span>
+                  </button>
+                </Link>
               </div>
             )}
           </nav>
 
           {/* Hero Content */}
           <div className="container mx-auto px-6 lg:px-12 xl:px-16 pt-8 pb-24 lg:pb-32">
-            
-            {/* Mobile Layout - Smaller Image */}
+            {/* Mobile Layout */}
             <div className="lg:hidden space-y-8">
+              {/* Title First */}
+              <div className="space-y-3">
+                <h1 className="text-[2.5rem] sm:text-5xl font-bold text-white leading-[1.1] tracking-tight">
+                  Let Me Help You<br />
+                  <span className="text-[#9ae761]">Overshoot Your</span>
+                </h1>
+                <h2 className="text-[2.5rem] sm:text-5xl font-bold text-[#9ae761] leading-[1.1] tracking-tight">
+                  Goals In The Right Ways
+                </h2>
+              </div>
+
+              {/* Image Section */}
               <div className="relative -mx-6 px-6">
                 <div className="relative max-w-sm mx-auto">
                   <div className="absolute -top-4 -right-4 w-40 h-40 bg-lime-400/20 rounded-full blur-3xl"></div>
                   <div className="absolute -bottom-4 -left-4 w-40 h-40 bg-teal-600/20 rounded-full blur-3xl"></div>
-                  
-                  <div className="relative bg-gradient-to-br from-white/20 to-white/5 backdrop-blur-sm p-4 rounded-[1.5rem] shadow-2xl border border-white/20">
-                    <div className="relative rounded-xl overflow-hidden shadow-xl">
-                      <Image src={heroImage} alt="Er. Mukesh Bhaskar - CEO" width={400} height={480} className="w-full h-auto" priority />
-                      <div className="absolute inset-0 bg-gradient-to-t from-teal-900/50 via-transparent to-transparent"></div>
+
+                  <div className="relative bg-gradient-to-br from-white/20 to-white/5 backdrop-blur-sm p-3 rounded-[1.5rem] shadow-2xl border border-white/20">
+                    <div className="relative rounded-xl overflow-hidden shadow-xl h-[380px]">
+                      <Image
+                        src={heroImage}
+                        alt="Er. Mukesh Bhaskar - CEO"
+                        width={400}
+                        height={380}
+                        className="w-full h-full object-contain object-center"
+                        priority
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-teal-900/30 via-transparent to-transparent"></div>
                     </div>
-                    <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-[#9ae761] px-4 py-2 rounded-lg shadow-xl">
-                      <div className="flex items-center gap-2">
-                        <Star className="w-3.5 h-3.5 fill-teal-900 text-teal-900" />
-                        <span className="text-teal-900 font-bold text-xs">Er.Mukesh Bhaskar</span>
-                      </div>
-                    </div>
+                  </div>
+
+                  {/* Name Badge Below Image */}
+                  <div className="mt-4 text-center space-y-1 bg-white/10 backdrop-blur-sm p-2.5 rounded-xl border border-white/20">
+                    <h3 className="text-white font-bold text-sm">
+                      Er. Mukesh Bhaskar
+                    </h3>
+                    <p className="text-lime-400 text-xs font-semibold">
+                      Corporate Coach & Social Leader
+                    </p>
+                    <p className="text-white/80 text-xs font-medium">
+                      CEO - Cascab Pvt. Ltd
+                    </p>
                   </div>
                 </div>
               </div>
 
-              <div className="space-y-3">
-                <h1 className="text-5xl font-bold text-white leading-tight">Best Business<br />Coach</h1>
-                <h2 className="text-4xl font-bold text-[#9ae761] leading-tight">Entrepreneurs with<br />Small Business</h2>
-              </div>
-
+              {/* Description */}
               <p className="text-base text-white/90 leading-relaxed">
-                Mukesh Bhaskar is a renowned corporate coach, entrepreneur, and planner from India. He is a young successful entrepreneur in the spices industry known as CASCAB.
+                Mukesh Bhaskar is a renowned corporate coach, entrepreneur, and
+                planner from India. He is a young successful entrepreneur in the
+                spices industry known as CASCAB.
               </p>
 
+              {/* CTA & Ratings */}
               <div className="space-y-6">
-                <button className="w-full group bg-[#9ae761] text-teal-900 px-8 py-4 rounded-full text-base font-bold hover:bg-lime-300 transition-all shadow-xl hover:shadow-2xl flex items-center justify-center gap-3">
-                  Contact Us
-                  <span className="bg-teal-900 text-lime-400 rounded-full w-10 h-10 flex items-center justify-center group-hover:rotate-45 transition-transform">→</span>
-                </button>
+                <Link href="/contact">
+                  <button className="w-full group bg-[#9ae761] text-teal-900 px-8 py-4 rounded-full text-base font-bold hover:bg-lime-300 transition-all shadow-xl hover:shadow-2xl flex items-center justify-center gap-3">
+                    Contact Us
+                    <span className="bg-teal-900 text-lime-400 rounded-full w-10 h-10 flex items-center justify-center group-hover:rotate-45 transition-transform">
+                      →
+                    </span>
+                  </button>
+                </Link>
 
                 <div className="flex items-center justify-center gap-3">
                   <div className="flex -space-x-3">
                     {indianClients.map((avatar, i) => (
-                      <div key={i} className="w-12 h-12 rounded-full border-4 border-teal-900 overflow-hidden bg-white shadow-lg">
-                        <img src={avatar} alt={`Client ${i + 1}`} className="w-full h-full object-cover" />
+                      <div
+                        key={i}
+                        className="w-12 h-12 rounded-full border-4 border-teal-900 overflow-hidden bg-white shadow-lg"
+                      >
+                        <img
+                          src={avatar}
+                          alt={`Client ${i + 1}`}
+                          className="w-full h-full object-cover"
+                        />
                       </div>
                     ))}
                   </div>
                   <div>
                     <div className="flex items-center gap-1.5">
                       <Star className="w-4 h-4 fill-lime-400 text-lime-400" />
-                      <span className="text-white font-bold text-sm">4.9/5 Rating</span>
+                      <span className="text-white font-bold text-sm">
+                        4.9/5 Rating
+                      </span>
                     </div>
-                    <p className="text-white/60 text-xs font-medium">Trusted by 750+ Clients</p>
+                    <p className="text-white/60 text-xs font-medium">
+                      Trusted by 750+ Clients
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Desktop Layout */}
-            <div className="hidden lg:grid lg:grid-cols-12 gap-12 xl:gap-16 items-center">
-              <div className="lg:col-span-7 xl:col-span-6 space-y-8">
+            {/* Desktop Layout - Aligned Image */}
+            <div className="hidden lg:grid lg:grid-cols-2 gap-12 xl:gap-16 items-start">
+              {/* Left Side - Content */}
+              <div className="space-y-8">
                 <div className="space-y-3">
-                  <h1 className="text-6xl xl:text-7xl font-bold text-white leading-[1.1]">Best Business<br />Coach</h1>
-                  <h2 className="text-5xl xl:text-6xl font-bold text-[#9ae761] leading-[1.1]">Entrepreneurs with<br />Small Business</h2>
+                  <h1 className="text-5xl xl:text-6xl 2xl:text-7xl font-bold text-white leading-[1.1] tracking-tight">
+                    Let Me Help You<br />
+                    <span className="text-[#9ae761]">Overshoot Your Goals</span>
+                  </h1>
+                  <h2 className="text-5xl xl:text-6xl 2xl:text-7xl font-bold text-[#9ae761] leading-[1.1] tracking-tight">
+                    In The Right Ways
+                  </h2>
                 </div>
 
-                <p className="text-lg xl:text-xl text-white/90 leading-relaxed max-w-2xl">
-                  Mukesh Bhaskar is a renowned corporate coach, entrepreneur, and planner from India. He is a young successful entrepreneur in the spices industry known as CASCAB.
+                <p className="text-lg text-white/90 leading-relaxed max-w-xl">
+                  Mukesh Bhaskar is a renowned corporate coach, entrepreneur,
+                  and planner from India. He is a young successful entrepreneur
+                  in the spices industry known as CASCAB.
                 </p>
 
                 <div className="flex items-center gap-8 pt-4">
-                  <button className="group bg-[#9ae761] text-teal-900 px-8 py-4 rounded-full text-base font-bold hover:bg-lime-300 transition-all shadow-xl hover:shadow-2xl hover:scale-105 flex items-center gap-3">
-                    Contact
-                    <span className="bg-teal-900 text-lime-400 rounded-full w-10 h-10 flex items-center justify-center group-hover:rotate-45 transition-transform">→</span>
-                  </button>
+                  <Link href="/contact">
+                    <button className="group bg-[#9ae761] text-teal-900 px-8 py-4 rounded-full text-base font-bold hover:bg-lime-300 transition-all shadow-xl hover:shadow-2xl hover:scale-105 flex items-center gap-3">
+                      Contact
+                      <span className="bg-teal-900 text-lime-400 rounded-full w-10 h-10 flex items-center justify-center group-hover:rotate-45 transition-transform">
+                        →
+                      </span>
+                    </button>
+                  </Link>
 
                   <div className="flex items-center gap-3">
                     <div className="flex -space-x-2">
                       {indianClients.map((avatar, i) => (
-                        <div key={i} className="w-12 h-12 rounded-full border-4 border-teal-900 overflow-hidden bg-white shadow-lg">
-                          <img src={avatar} alt={`Client ${i + 1}`} className="w-full h-full object-cover" />
+                        <div
+                          key={i}
+                          className="w-12 h-12 rounded-full border-4 border-teal-900 overflow-hidden bg-white shadow-lg"
+                        >
+                          <img
+                            src={avatar}
+                            alt={`Client ${i + 1}`}
+                            className="w-full h-full object-cover"
+                          />
                         </div>
                       ))}
                     </div>
                     <div>
                       <div className="flex items-center gap-1.5">
                         <Star className="w-4 h-4 fill-lime-400 text-lime-400" />
-                        <span className="text-white font-bold text-sm">4.9/5 Rating</span>
+                        <span className="text-white font-bold text-sm">
+                          4.9/5 Rating
+                        </span>
                       </div>
-                      <p className="text-white/60 text-xs font-medium">Trusted by 750+ Clients</p>
+                      <p className="text-white/60 text-xs font-medium">
+                        Trusted by 750+ Clients
+                      </p>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <div className="lg:col-span-5 xl:col-span-6">
-                <div className="relative">
-                  <div className="absolute -top-8 -right-8 w-80 h-80 bg-lime-400/20 rounded-full blur-3xl"></div>
-                  <div className="absolute -bottom-8 -left-8 w-80 h-80 bg-teal-600/20 rounded-full blur-3xl"></div>
-                  
-                  <div className="relative bg-gradient-to-br from-white/20 to-white/5 backdrop-blur-sm p-8 rounded-[2.5rem] shadow-2xl border border-white/20 transform hover:scale-105 transition-transform duration-300">
-                    <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-                      <Image src={heroImage} alt="Er. Mukesh Bhaskar - CEO" width={600} height={700} className="w-full h-auto" priority />
-                      <div className="absolute inset-0 bg-gradient-to-t from-teal-900/50 via-transparent to-transparent"></div>
+              {/* Right Side - Image (Aligned to start) */}
+              <div className="flex justify-end">
+                <div className="relative w-full max-w-sm">
+                  {/* Decorative Elements */}
+                  <div className="absolute -top-4 -right-4 w-40 h-40 bg-lime-400/20 rounded-full blur-3xl"></div>
+                  <div className="absolute -bottom-4 -left-4 w-40 h-40 bg-teal-600/20 rounded-full blur-3xl"></div>
+
+                  {/* Image Container */}
+                  <div className="relative bg-gradient-to-br from-white/20 to-white/5 backdrop-blur-sm p-3 rounded-[1.5rem] shadow-2xl border border-white/20 transform hover:scale-105 transition-transform duration-300">
+                    <div className="relative rounded-xl overflow-hidden shadow-2xl h-[520px]">
+                      <Image
+                        src={heroImage}
+                        alt="Er. Mukesh Bhaskar - CEO"
+                        width={340}
+                        height={520}
+                        className="w-full h-full object-contain object-center"
+                        priority
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-teal-900/30 via-transparent to-transparent"></div>
                     </div>
-                    <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 bg-[#9ae761] px-6 py-3 rounded-2xl shadow-xl">
-                      <div className="flex items-center gap-2">
-                        <Star className="w-5 h-5 fill-teal-900 text-teal-900" />
-                        <span className="text-teal-900 font-bold text-base">Er.Mukesh Bhaskar</span>
-                      </div>
-                    </div>
+                  </div>
+
+                  {/* Name Badge */}
+                  <div className="mt-4 text-center space-y-1 bg-white/10 backdrop-blur-sm p-2.5 rounded-xl border border-white/20">
+                    <h3 className="text-white font-bold text-sm">
+                      Er. Mukesh Bhaskar
+                    </h3>
+                    <p className="text-lime-400 text-xs font-semibold">
+                      Corporate Coach & Social Leader
+                    </p>
+                    <p className="text-white/80 text-xs font-medium">
+                      CEO - Cascab Pvt. Ltd
+                    </p>
                   </div>
                 </div>
               </div>
@@ -472,7 +635,12 @@ export default function Hero() {
         </div>
 
         {/* Curved bottom edge */}
-        <svg className="absolute bottom-0 left-0 w-full h-24 lg:h-32 text-white" viewBox="0 0 1440 120" fill="currentColor" preserveAspectRatio="none">
+        <svg
+          className="absolute bottom-0 left-0 w-full h-24 lg:h-32 text-white"
+          viewBox="0 0 1440 120"
+          fill="currentColor"
+          preserveAspectRatio="none"
+        >
           <path d="M0,0 C480,120 960,120 1440,0 L1440,120 L0,120 Z"></path>
         </svg>
       </div>
