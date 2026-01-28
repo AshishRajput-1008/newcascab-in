@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowRight, Sparkles } from 'lucide-react';
+import Link from 'next/link';
 
 import s1 from "@/app/assets/Works/c.jpg"
 import s5 from "@/app/assets/heroSection/CEO.png";
@@ -104,19 +105,16 @@ export default function OurWork() {
                 Discover our diverse ventures spanning premium spices, authentic cuisine, sustainable farming, and business consultancy.
               </p>
             </div>
-            <a href='/Ourgroup'>
-            <button className="hidden md:flex items-center gap-2 bg-[#9ae761] hover:bg-[#b8e827] text-[#0a3d3d] px-8 py-4 rounded-full font-bold text-base transition-all shadow-lg hover:shadow-xl hover:scale-105 whitespace-nowrap group">
-              View All Services
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </button>
-            </a>
+            <Link href='/media/group'>
+              <button className="hidden md:flex items-center gap-2 bg-[#9ae761] hover:bg-[#b8e827] text-[#0a3d3d] px-8 py-4 rounded-full font-bold text-base transition-all shadow-lg hover:shadow-xl hover:scale-105 whitespace-nowrap group">
+                View All Services
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </button>
+            </Link>
           </div>
         </div>
 
         {/* Projects Grid */}
-
-<a href='/Ourgroup'>
-
         <div className="space-y-8">
           {projects.map((project, index) => (
             <div 
@@ -202,23 +200,26 @@ export default function OurWork() {
                   </div>
                 </div>
 
-                {/* Decorative corner element */}
-                <div className="absolute bottom-8 right-8 w-16 h-16 opacity-5 group-hover:opacity-10 transition-opacity">
-                  <div className="w-full h-full border-4 border-[#044441] rounded-full"></div>
-                </div>
+                {/* Read More Button - Replaces decorative corner element */}
+                <Link href="/media/group">
+                  <button className="absolute bottom-8 right-8 bg-[#044441] hover:bg-red-600 text-white px-6 py-2.5 rounded-full font-bold text-sm transition-all shadow-lg hover:shadow-xl hover:scale-105 flex items-center gap-2 group/btn">
+                    Read More
+                    <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                  </button>
+                </Link>
               </div>
             </div>
           ))}
         </div>
 
-        </a>
-
         {/* Mobile View All Button */}
         <div className="mt-12 md:hidden">
-          <button className="w-full flex items-center justify-center gap-3 bg-[#9ae761] hover:bg-[#b8e827] text-[#0a3d3d] px-8 py-4 rounded-full font-bold text-base transition-all shadow-lg active:scale-95">
-            View All Works
-            <ArrowRight className="w-5 h-5" />
-          </button>
+          <Link href="/media/group">
+            <button className="w-full flex items-center justify-center gap-3 bg-[#9ae761] hover:bg-[#b8e827] text-[#0a3d3d] px-8 py-4 rounded-full font-bold text-base transition-all shadow-lg active:scale-95">
+              View All Works
+              <ArrowRight className="w-5 h-5" />
+            </button>
+          </Link>
         </div>
 
         {/* Bottom decorative accent */}

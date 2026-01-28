@@ -1,3 +1,6 @@
+
+
+
 "use client"
 import React, { useState } from "react";
 import { Image as ImageIcon, Video, Newspaper, Award, Calendar, Share2, Eye, Play } from "lucide-react";
@@ -5,37 +8,74 @@ import Header from "@/app/components/Home/Header"
 import Footer from "@/app/components/Home/Footer"
 
 
+import g1 from "@/app/assets/Gallery2/cascab-G.jpg"
+import g2 from "@/app/assets/Gallery2/cascab2-g.jpg"
+import g3 from "@/app/assets/Gallery2/0P2A6108.JPG.jpeg"
+import g4 from "@/app/assets/heroSection/CEO.png";
+
+
 export default function Media() {
   const [activeTab, setActiveTab] = useState<'news' | 'gallery' | 'videos'>('news');
+  const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
 
   const newsItems = [
+    {
+      date: "January 2026",
+      title: "CASCAB Innovation & Excellence Showcase",
+      excerpt: "Watch our latest video featuring CASCAB's commitment to quality and innovation",
+      category: "Featured Video",
+      views: "8.5K",
+      hasVideo: true,
+      videoEmbedId: "6f-SciDpbnI",
+      videoThumbnail: "https://img.youtube.com/vi/6f-SciDpbnI/maxresdefault.jpg",
+      videoLink: "https://www.youtube.com/watch?v=6f-SciDpbnI"
+    },
     {
       date: "January 2026",
       title: "CASCAB Reaches 750+ Client Milestone",
       excerpt: "Er. Mukesh Bhaskar's consultancy services achieve remarkable success rate",
       category: "Achievement",
-      views: "2.5K"
+      views: "2.5K",
+      hasImage: true,
+      image: g4
+    },
+    {
+      date: "January 2026",
+      title: "CASCAB Journey: Vision to Success",
+      excerpt: "Discover the inspiring story behind CASCAB's remarkable growth and transformation",
+      category: "Featured Video",
+      views: "12K",
+      hasVideo: true,
+      videoEmbedId: "m8YUBTe2J5w",
+      videoThumbnail: "https://img.youtube.com/vi/m8YUBTe2J5w/maxresdefault.jpg",
+      videoLink: "https://www.youtube.com/watch?v=m8YUBTe2J5w"
     },
     {
       date: "December 2025",
       title: "New Product Line Launch: Organic Spices Range",
       excerpt: "CASCAB introduces 100% organic, chemical-free spice collection",
       category: "Product Launch",
-      views: "3.2K"
+      views: "3.2K",
+      hasImage: true,
+      image: g1
     },
     {
       date: "November 2025",
       title: "CASCAB Highway Treat Expansion",
       excerpt: "Popular restaurant announces new location on NH 44",
       category: "Expansion",
-      views: "1.8K"
+      views: "1.8K",
+      hasImage: true,
+      image: g3
     },
     {
       date: "October 2025",
       title: "Entrepreneurship Development Program Success",
       excerpt: "200+ entrepreneurs trained in Q4 2025 with 100% satisfaction rate",
       category: "Training",
-      views: "2.1K"
+      views: "2.1K",
+      hasImage: true,
+      image: g2
     }
   ];
 
@@ -43,32 +83,38 @@ export default function Media() {
     {
       title: "Manufacturing Facility",
       description: "State-of-the-art spices processing unit",
-      category: "Facility"
+      category: "Facility",
+      image: g1
     },
     {
       title: "Training Session",
       description: "EDP workshop with aspiring entrepreneurs",
-      category: "Events"
+      category: "Events",
+      image: g2
     },
     {
       title: "Product Range",
       description: "CASCAB's diverse spices and FMCG products",
-      category: "Products"
+      category: "Products",
+      image: g3
     },
     {
-      title: "Restaurant Interior",
-      description: "CASCAB Highway Treat ambiance",
-      category: "Restaurant"
+      title: "Leadership Excellence",
+      description: "Er. Mukesh Bhaskar - Visionary Leader",
+      category: "Leadership",
+      image: g4
     },
     {
-      title: "Team Meeting",
+      title: "Team Collaboration",
       description: "Strategic planning with business partners",
-      category: "Team"
+      category: "Team",
+      image: g1
     },
     {
       title: "Award Ceremony",
       description: "Recognition for business excellence",
-      category: "Awards"
+      category: "Awards",
+      image: g2
     }
   ];
 
@@ -77,27 +123,38 @@ export default function Media() {
       title: "CASCAB Journey: From Vision to Success",
       duration: "5:30",
       views: "12K",
-      description: "Er. Mukesh Bhaskar shares the inspiring story of CASCAB"
+      description: "Er. Mukesh Bhaskar shares the inspiring story of CASCAB",
+      link: "https://www.youtube.com/watch?v=m8YUBTe2J5w",
+      embedId: "m8YUBTe2J5w",
+      thumbnail: "https://img.youtube.com/vi/m8YUBTe2J5w/maxresdefault.jpg"
     },
     {
-      title: "Traditional Cooking Methods at Highway Treat",
-      duration: "3:45",
+      title: "CASCAB Innovation & Excellence",
+      duration: "4:15",
       views: "8.5K",
-      description: "Experience authentic Bundelkhandi cuisine preparation"
+      description: "Discover CASCAB's commitment to quality and innovation in the spices industry",
+      link: "https://www.youtube.com/watch?v=6f-SciDpbnI",
+      embedId: "6f-SciDpbnI",
+      thumbnail: "https://img.youtube.com/vi/6f-SciDpbnI/maxresdefault.jpg"
     },
     {
-      title: "How to Start Your Spices Business",
-      duration: "15:20",
-      views: "25K",
-      description: "Complete guide to establishing a spices manufacturing unit"
-    },
-    {
-      title: "Client Success Stories",
-      duration: "8:15",
-      views: "6.2K",
-      description: "Real stories from successful CASCAB consultancy clients"
+      title: "CASCAB Business Solutions & Growth",
+      duration: "6:20",
+      views: "15K",
+      description: "Learn how CASCAB helps businesses achieve sustainable growth and success",
+      link: "https://www.youtube.com/watch?v=nqiJWpmDONY",
+      embedId: "nqiJWpmDONY",
+      thumbnail: "https://img.youtube.com/vi/nqiJWpmDONY/maxresdefault.jpg"
     }
   ];
+
+  const handleVideoClick = (embedId: string) => {
+    setSelectedVideo(embedId);
+  };
+
+  const closeVideoModal = () => {
+    setSelectedVideo(null);
+  };
 
   return (
     <>
@@ -182,13 +239,66 @@ export default function Media() {
                     key={index}
                     className="group bg-white rounded-2xl shadow-lg border-2 border-teal-100 hover:border-[#9ae761] transition-all duration-300 overflow-hidden hover:shadow-2xl"
                   >
-                    <div className="h-48 bg-gradient-to-br from-teal-600 to-teal-800 flex items-center justify-center relative overflow-hidden">
-                      <Newspaper className="w-20 h-20 text-white/30" />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                      <span className="absolute top-4 left-4 bg-[#9ae761] text-teal-900 px-4 py-2 rounded-full text-sm font-bold">
-                        {item.category}
-                      </span>
-                    </div>
+                    {/* Video News Item */}
+                    {item.hasVideo ? (
+                      <div 
+                        className="relative h-64 cursor-pointer overflow-hidden"
+                        onClick={() => handleVideoClick(item.videoEmbedId)}
+                      >
+                        <img 
+                          src={item.videoThumbnail}
+                          alt={item.title}
+                          className="absolute inset-0 w-full h-full object-cover"
+                          onError={(e) => {
+                            e.currentTarget.style.display = 'none';
+                          }}
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        
+                        {/* Play Button Overlay */}
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center group-hover:scale-110 transition-transform shadow-2xl">
+                            <Play className="w-8 h-8 text-teal-900 ml-1" />
+                          </div>
+                        </div>
+                        
+                        {/* Category Badge */}
+                        <span className="absolute top-4 left-4 bg-[#9ae761] text-teal-900 px-4 py-2 rounded-full text-sm font-bold flex items-center gap-2">
+                          <Video className="w-4 h-4" />
+                          {item.category}
+                        </span>
+                      </div>
+                    ) : item.hasImage ? (
+                      /* Image News Item */
+                      <div className="relative h-64 overflow-hidden">
+                        <img 
+                          src={item.image.src}
+                          alt={item.title}
+                          className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+                        
+                        {/* Category Badge */}
+                        <span className="absolute top-4 left-4 bg-[#9ae761] text-teal-900 px-4 py-2 rounded-full text-sm font-bold flex items-center gap-2">
+                          <ImageIcon className="w-4 h-4" />
+                          {item.category}
+                        </span>
+                        
+                        {/* Eye Icon on Hover */}
+                        <div className="absolute top-4 right-4 bg-white/20 backdrop-blur-sm p-3 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
+                          <Eye className="w-5 h-5 text-white" />
+                        </div>
+                      </div>
+                    ) : (
+                      /* Regular News Item (Fallback) */
+                      <div className="h-48 bg-gradient-to-br from-teal-600 to-teal-800 flex items-center justify-center relative overflow-hidden">
+                        <Newspaper className="w-20 h-20 text-white/30" />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                        <span className="absolute top-4 left-4 bg-[#9ae761] text-teal-900 px-4 py-2 rounded-full text-sm font-bold">
+                          {item.category}
+                        </span>
+                      </div>
+                    )}
                     
                     <div className="p-6">
                       <div className="flex items-center gap-4 text-sm text-gray-500 mb-3">
@@ -208,9 +318,20 @@ export default function Media() {
                       <p className="text-gray-600 mb-4">{item.excerpt}</p>
                       
                       <div className="flex items-center justify-between">
-                        <button className="text-teal-600 font-semibold hover:text-teal-800 flex items-center gap-2">
-                          Read More →
-                        </button>
+                        {item.hasVideo ? (
+                          <a 
+                            href={item.videoLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-teal-600 font-semibold hover:text-teal-800 flex items-center gap-2"
+                          >
+                            Watch on YouTube →
+                          </a>
+                        ) : (
+                          <button className="text-teal-600 font-semibold hover:text-teal-800 flex items-center gap-2">
+                            Read More →
+                          </button>
+                        )}
                         <button className="p-2 hover:bg-teal-50 rounded-full transition-colors">
                           <Share2 className="w-5 h-5 text-teal-600" />
                         </button>
@@ -231,14 +352,21 @@ export default function Media() {
                     key={index}
                     className="group relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer"
                   >
-                    <div className="absolute inset-0 bg-gradient-to-br from-teal-600 to-teal-800 flex items-center justify-center">
-                      <ImageIcon className="w-16 h-16 text-white/50" />
-                    </div>
+                    {/* Actual Image */}
+                    <img 
+                      src={item.image.src}
+                      alt={item.title}
+                      className="absolute inset-0 w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                    />
+                    
+                    {/* Hover Overlay */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6">
                       <span className="text-[#9ae761] text-sm font-bold mb-2">{item.category}</span>
                       <h3 className="text-white text-xl font-bold mb-2">{item.title}</h3>
                       <p className="text-white/80 text-sm">{item.description}</p>
                     </div>
+                    
+                    {/* Eye Icon */}
                     <div className="absolute top-4 right-4 bg-white/20 backdrop-blur-sm p-3 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
                       <Eye className="w-5 h-5 text-white" />
                     </div>
@@ -248,22 +376,38 @@ export default function Media() {
             </div>
           )}
 
-          {/* Videos Tab */}
+          {/* Videos Tab - Enhanced with YouTube Integration */}
           {activeTab === 'videos' && (
             <div className="max-w-6xl mx-auto">
               <div className="grid lg:grid-cols-2 gap-8">
                 {videos.map((video, index) => (
                   <div
                     key={index}
-                    className="group bg-white rounded-2xl shadow-lg border-2 border-teal-100 hover:border-[#9ae761] transition-all duration-300 overflow-hidden hover:shadow-2xl cursor-pointer"
+                    className="group bg-white rounded-2xl shadow-lg border-2 border-teal-100 hover:border-[#9ae761] transition-all duration-300 overflow-hidden hover:shadow-2xl"
                   >
-                    <div className="relative aspect-video bg-gradient-to-br from-teal-600 to-teal-800 flex items-center justify-center overflow-hidden">
-                      <Video className="w-20 h-20 text-white/30" />
+                    <div 
+                      className="relative aspect-video bg-gradient-to-br from-teal-600 to-teal-800 overflow-hidden cursor-pointer"
+                      onClick={() => handleVideoClick(video.embedId)}
+                    >
+                      {/* YouTube Thumbnail */}
+                      <img 
+                        src={video.thumbnail}
+                        alt={video.title}
+                        className="absolute inset-0 w-full h-full object-cover"
+                        onError={(e) => {
+                          // Fallback to gradient if thumbnail fails to load
+                          e.currentTarget.style.display = 'none';
+                        }}
+                      />
+                      
+                      {/* Overlay */}
                       <div className="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-colors flex items-center justify-center">
                         <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center group-hover:scale-110 transition-transform shadow-2xl">
                           <Play className="w-10 h-10 text-teal-900 ml-1" />
                         </div>
                       </div>
+                      
+                      {/* Duration Badge */}
                       <span className="absolute top-4 right-4 bg-black/60 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm font-semibold">
                         {video.duration}
                       </span>
@@ -280,9 +424,19 @@ export default function Media() {
                           <Eye className="w-4 h-4" />
                           <span className="text-sm">{video.views} views</span>
                         </div>
-                        <button className="p-2 hover:bg-teal-50 rounded-full transition-colors">
-                          <Share2 className="w-5 h-5 text-teal-600" />
-                        </button>
+                        <div className="flex items-center gap-2">
+                          <a 
+                            href={video.link}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-teal-600 font-semibold hover:text-teal-800 text-sm"
+                          >
+                            Watch on YouTube →
+                          </a>
+                          <button className="p-2 hover:bg-teal-50 rounded-full transition-colors">
+                            <Share2 className="w-5 h-5 text-teal-600" />
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -292,6 +446,34 @@ export default function Media() {
           )}
         </div>
       </section>
+
+      {/* Video Modal */}
+      {selectedVideo && (
+        <div 
+          className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
+          onClick={closeVideoModal}
+        >
+          <div 
+            className="relative w-full max-w-6xl aspect-video"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={closeVideoModal}
+              className="absolute -top-12 right-0 text-white hover:text-[#9ae761] text-4xl font-bold transition-colors"
+            >
+              ×
+            </button>
+            <iframe
+              className="w-full h-full rounded-2xl shadow-2xl"
+              src={`https://www.youtube.com/embed/${selectedVideo}?autoplay=1`}
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </div>
+        </div>
+      )}
 
       {/* Social Media Section */}
       <section className="py-20 bg-gradient-to-br from-teal-50 to-lime-50">
@@ -322,12 +504,12 @@ export default function Media() {
                 <h3 className="font-bold text-teal-900 text-lg">YouTube</h3>
               </a>
               
-              <div className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all hover:-translate-y-2">
+              <a href="https://wa.me/917355996988" target="_blank" rel="noopener noreferrer" className="group bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-all hover:-translate-y-2">
                 <div className="w-16 h-16 bg-green-600 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
                   <span className="text-white text-3xl font-bold">W</span>
                 </div>
                 <h3 className="font-bold text-teal-900 text-lg">WhatsApp</h3>
-              </div>
+              </a>
             </div>
           </div>
         </div>

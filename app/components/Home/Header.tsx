@@ -15,40 +15,53 @@ import logo2 from "@/app/assets/heroSection/ChatGPT Image Nov 20, 2025, 06_19_01
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
 
-  // Initialize Google Translate
-  useEffect(() => {
-    if (typeof window === 'undefined') return;
+  
 
-    // Add Google Translate configuration
-    const configScript = document.createElement('script');
-    configScript.innerHTML = `
+  // Initialize Google Translate
+   useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const cleanupGTranslate = () => {
+      document.querySelectorAll(".gtranslate_wrapper").forEach(w => (w.innerHTML = ""));
+      document.querySelectorAll(".skiptranslate, .goog-te-banner-frame, .goog-te-spinner-pos")
+        .forEach(el => el.remove());
+
+      document.querySelectorAll('script[src*="gtranslate"]').forEach(script => script.remove());
+
+      if (document.body) document.body.style.top = "";
+
+      if ("gtranslateSettings" in window) delete window.gtranslateSettings;
+      if ("doGTranslate" in window) delete window.doGTranslate;
+    };
+
+    cleanupGTranslate();
+
+    const timeoutId = setTimeout(() => {
       window.gtranslateSettings = {
         default_language: "en",
         native_language_names: true,
         detect_browser_language: true,
         url_structure: "none",
         wrapper_selector: ".gtranslate_wrapper",
-        languages: [
-          "en", "hi", "te", "pa", "ml", 
-          "ur", "bn", "gu", "kn", "ta", "mr"
-        ]
+        languages: ["en", "hi", "te", "pa", "ml", "ur", "bn", "gu", "kn", "ta", "mr"],
       };
-    `;
-    document.body.appendChild(configScript);
 
-    // Add Google Translate script
-    const translateScript = document.createElement('script');
-    translateScript.src = 'https://cdn.gtranslate.net/widgets/latest/dropdown.js';
-    translateScript.defer = true;
-    document.body.appendChild(translateScript);
+      if (!document.getElementById("gtranslate-script")) {
+        const script = document.createElement("script");
+        script.src = "https://cdn.gtranslate.net/widgets/latest/dropdown.js";
+        script.defer = true;
+        script.id = "gtranslate-script";
+        document.body.appendChild(script);
+      }
+    }, 100);
 
     return () => {
-      // Cleanup scripts on unmount
-      if (configScript.parentNode) configScript.parentNode.removeChild(configScript);
-      if (translateScript.parentNode) translateScript.parentNode.removeChild(translateScript);
+      clearTimeout(timeoutId);
+      cleanupGTranslate();
     };
   }, []);
 
+   
   return (
     <>
       {/* Global styles for Google Translate widget */}
@@ -245,18 +258,18 @@ export default function Header() {
                   <ChevronDown className="w-4 h-4" />
                 </button>
                 <div className="absolute left-0 mt-2 w-48 bg-white text-gray-800 shadow-xl rounded-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 p-2 z-50">
-                  <a href="/Ourgroup" className="flex items-center gap-2 px-4 py-3 hover:bg-gray-50 rounded-xl transition cursor-pointer">
+                  {/* <a href="/Ourgroup" className="flex items-center gap-2 px-4 py-3 hover:bg-gray-50 rounded-xl transition cursor-pointer">
                     <Users className="w-4 h-4 text-teal-600" />
                     <span className="text-sm font-medium">Team Members</span>
-                  </a>
+                  </a> */}
                   <a href="/Ourgroup" className="flex items-center gap-2 px-4 py-3 hover:bg-gray-50 rounded-xl transition cursor-pointer">
                     <FolderKanban className="w-4 h-4 text-teal-600" />
-                    <span className="text-sm font-medium">Projects</span>
+                    <span className="text-sm font-medium">Our Works</span>
                   </a>
-                  <a href="/Ourgroup" className="flex items-center gap-2 px-4 py-3 hover:bg-gray-50 rounded-xl transition cursor-pointer">
+                  {/* <a href="/Ourgroup" className="flex items-center gap-2 px-4 py-3 hover:bg-gray-50 rounded-xl transition cursor-pointer">
                     <HelpCircle className="w-4 h-4 text-teal-600" />
                     <span className="text-sm font-medium">About Us</span>
-                  </a>
+                  </a> */}
                 </div>
               </div>
               <div className="relative group">
@@ -267,11 +280,11 @@ export default function Header() {
                 <div className="absolute left-0 mt-2 w-48 bg-white text-gray-800 shadow-xl rounded-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 p-2 z-50">
                   <a href="/Query" className="flex items-center gap-2 px-4 py-3 hover:bg-gray-50 rounded-xl transition cursor-pointer">
                     <Newspaper className="w-4 h-4 text-teal-600" />
-                    <span className="text-sm font-medium">Latest Posts</span>
+                    <span className="text-sm font-medium">help</span>
                   </a>
                   <a href="/Query" className="flex items-center gap-2 px-4 py-3 hover:bg-gray-50 rounded-xl transition cursor-pointer">
                     <BookOpen className="w-4 h-4 text-teal-600" />
-                    <span className="text-sm font-medium">Case Studies</span>
+                    <span className="text-sm font-medium">talk</span>
                   </a>
                 </div>
               </div>
@@ -332,25 +345,25 @@ export default function Header() {
           {mobileMenuOpen && (
             <div className="lg:hidden mt-4 bg-white/10 backdrop-blur-lg rounded-2xl p-4 space-y-2">
               {/* Navigation Links */}
-              <a href="/our-profile" className="block text-lime-400 font-semibold py-2.5 px-4 rounded-lg hover:bg-white/10 transition">
+              <a href="/Ourprofile" className="block text-lime-400 font-semibold py-2.5 px-4 rounded-lg hover:bg-white/10 transition">
                 Our Profile
               </a>
-              <a href="/startup" className="block text-white font-semibold py-2.5 px-4 rounded-lg hover:bg-white/10 transition">
+              <a href="/Startup" className="block text-white font-semibold py-2.5 px-4 rounded-lg hover:bg-white/10 transition">
                 Startup Programs
               </a>
-              <a href="/opportunities" className="block text-white font-semibold py-2.5 px-4 rounded-lg hover:bg-white/10 transition">
+              <a href="/Opportunities" className="block text-white font-semibold py-2.5 px-4 rounded-lg hover:bg-white/10 transition">
                 Opportunities
               </a>
-              <a href="/our-group" className="block text-white font-semibold py-2.5 px-4 rounded-lg hover:bg-white/10 transition">
+              <a href="/Ourgroup" className="block text-white font-semibold py-2.5 px-4 rounded-lg hover:bg-white/10 transition">
                 Our Group
               </a>
-              <a href="/query" className="block text-white font-semibold py-2.5 px-4 rounded-lg hover:bg-white/10 transition">
+              <a href="/Query" className="block text-white font-semibold py-2.5 px-4 rounded-lg hover:bg-white/10 transition">
                 Query
               </a>
-              <a href="/media" className="block text-white font-semibold py-2.5 px-4 rounded-lg hover:bg-white/10 transition">
+              <a href="/Media" className="block text-white font-semibold py-2.5 px-4 rounded-lg hover:bg-white/10 transition">
                 Media
               </a>
-              <a href="/query" className="block text-white font-semibold py-2.5 px-4 rounded-lg hover:bg-white/10 transition">
+              <a href="/Query" className="block text-white font-semibold py-2.5 px-4 rounded-lg hover:bg-white/10 transition">
                 Contact
               </a>
               
